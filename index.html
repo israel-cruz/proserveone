@@ -11,10 +11,16 @@
     <!-- favicon -->
     <link href="assets/images/favicon.ico" rel="shortcut icon">
 
-    <!-- Icons Css -->
+    <!-- Icons -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Main Css -->
+    <!-- Jarallax Css -->
+    <link href="assets/libs/jarallax/jarallax.min.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -119,7 +125,7 @@
                 <p class="text-base font-medium mt-4 text-muted">We provide professional cleaning services tailored to your needs, ensuring a spotless and healthy environment for your business.</p>
             </div>
 
-            <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-6 md:gap-y-12 lg:gap-y-24 md:pt-20 pt-12">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-6 md:gap-y-12 lg:gap-y-24 md:pt-20 pt-12">
 
                 <div class="text-center">
                     <div class="flex items-center justify-center">
@@ -160,6 +166,16 @@
                     <h1 class="text-xl font-semibold pt-4">Carpet and Upholstery Cleaning</h1>
                     <p class="text-base text-gray-600 mt-2">Revitalize your office’s carpets and furniture with our professional cleaning services.</p>
                 </div>
+
+                <div class="text-center">
+                    <div class="flex items-center justify-center">
+                        <div class="items-center justify-center flex bg-primary/10 rounded-[49%_80%_40%_90%_/_50%_30%_70%_80%] h-20 w-20 border">
+                            <svg class="h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                    </div>
+                    <h1 class="text-xl font-semibold pt-4">General Maintenance</h1>
+                    <p class="text-base text-gray-600 mt-2">Electrical, plumbing, welding, carpentry and solutions for storage facilities.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -193,12 +209,12 @@
                 </div>
 
                 <div class="">
-                    <div class="text-center max-w-xl mx-auto">
+                    <div class=" max-w-xl mx-auto">
                         <div>
                             <span class="text-sm text-primary uppercase font-medium tracking-wider text-default-950 mb-6">About us</span>
                         </div>
                         <h2 class="text-3xl md:text-4xl/tight font-semibold mt-4">ProServe One</h2>
-                        <p>We are a company committed to providing high-quality cleaning services, specializing in office and workplace cleaning. Our goal is to create clean, organized, and healthy environments so that businesses and employees can enjoy a spotless and comfortable space.</p>
+                        <p class="text-base font-medium mt-4 text-muted">We are a company committed to providing high-quality cleaning services, specializing in office and workplace cleaning. Our goal is to create clean, organized, and healthy environments so that businesses and employees can enjoy a spotless and comfortable space.</p>
                     </div>
     
                     <div id="accordion-collapse" data-accordion="collapse" class="md:gap-[30px] mt-14 bg-white rounded-xl">
@@ -385,7 +401,7 @@
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {
                                 document.getElementById("contactForm").addEventListener("submit", function (event) {
-                                    event.preventDefault(); // Evita el envío automático
+                                    event.preventDefault(); 
                                     
                                     let form = this;
                                     let formData = new FormData(form);
@@ -396,8 +412,8 @@
                                     })
                                     .then(response => response.text())
                                     .then(result => {
-                                        showSuccessMessage(); // Muestra mensaje de éxito
-                                        form.reset(); // Limpia el formulario
+                                        showSuccessMessage(); 
+                                        form.reset(); 
                                     })
                                     .catch(error => {
                                         console.error("Error:", error);
@@ -514,21 +530,26 @@
 
     
     <!-- Preline Js -->
-    <script src="assets/libs/preline/preline.js" ></script>
+    <script src="assets/libs/preline/preline.js"></script>
 
     <!-- Lucide Js -->
     <script src="assets/libs/lucide/umd/lucide.min.js"></script>
 
+    <!-- Gumshoe Js -->
+    <script src="assets/libs/gumshoejs/gumshoe.polyfills.min.js"></script>
+
     <!-- Jarallax Js -->
     <script src="assets/libs/jarallax/jarallax.min.js"></script>
+
+    <!-- Swiper Bundle Js -->
+    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
 
     <!-- Swiper Js -->
     <script src="assets/js/swiper.js"></script>
 
     <!-- Main App Js -->
     <script src="assets/js/app.js" ></script>
-
-
+       
     <script>
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
