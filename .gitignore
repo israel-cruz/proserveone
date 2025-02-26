@@ -1,1 +1,3 @@
 *.Identifier
+*.git
+*.gitignore

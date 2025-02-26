@@ -7,6 +7,8 @@
     <title>ProServeOne: Cleaning Services</title>
     <meta name="description" content="Professional Service, One Commitment"/>
     <meta name="keywords" content="cleaning, clean, service, clean service, office, clean office"/>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
     <!-- favicon -->
     <link href="assets/images/favicon.ico" rel="shortcut icon">
@@ -23,6 +25,12 @@
     <!-- Main -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        function enableSubmitBtn() {
+            document.getElementById("submit_btn_id").disabled = false;
+        }
+    </script>
 </head>
 
 <body>
@@ -387,10 +395,12 @@
                                     <label for="formMessages" class="block text-sm font-semibold text-black mb-2">Messages</label>
                                     <textarea class="block w-full text-sm rounded-md py-3 px-4 border-gray-200" id="formMessages" name="formMessages" rows="4" required></textarea>
                                 </div>
+
+                                <div class="g-recaptcha" data-sitekey="6LdS7uIqAAAAAAV9GcOS_Mq6H6YFMYB94QfPBcqU" data-callback="enableSubmitBtn"></div>
                             </div>
                         
                             <div class="mt-4">
-                                <button type="submit" class="py-2 px-6 rounded-md text-base border border-primary text-white bg-primary hover:bg-primaryDark transition-all font-medium">
+                                <button type="submit" disabled="disabled" class="py-2 px-6 rounded-md text-base border border-primary text-white bg-primary hover:bg-primaryDark transition-all font-medium" name="submit_btn" id="submit_btn_id">
                                     Send Message
                                 </button>
                             </div>
@@ -400,32 +410,52 @@
                         
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {
-                                document.getElementById("contactForm").addEventListener("submit", function (event) {
-                                    event.preventDefault(); 
-                                    
-                                    let form = this;
-                                    let formData = new FormData(form);
-                            
-                                    fetch(form.action, {
-                                        method: form.method,
-                                        body: formData
-                                    })
-                                    .then(response => response.text())
-                                    .then(result => {
-                                        showSuccessMessage(); 
-                                        form.reset(); 
-                                    })
-                                    .catch(error => {
-                                        console.error("Error:", error);
-                                    });
-                                });
-                            
-                                function showSuccessMessage() {
-                                    let responseDiv = document.getElementById("formResponse");
-                                    responseDiv.innerHTML = "✅ Message sent successfully!";
-                                    responseDiv.classList.add("text-green-600", "font-semibold", "mt-2");
-                                }
-                            });
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+            showErrorMessage("Please verify that you are not a robot.");
+            return; 
+        }
+
+        let form = this;
+        let formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+            if (result.includes("Message sent successfully")) {
+                showSuccessMessage();
+                form.reset();
+                grecaptcha.reset(); 
+            } else {
+                showErrorMessage("Error: Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            showErrorMessage("Error: Please try again.");
+        });
+    });
+
+    function showSuccessMessage() {
+        let responseDiv = document.getElementById("formResponse");
+        responseDiv.innerHTML = "✅ Message sent successfully!";
+        responseDiv.classList.remove("text-red-600");
+        responseDiv.classList.add("text-green-600", "font-semibold", "mt-2");
+    }
+
+    function showErrorMessage(message) {
+        let responseDiv = document.getElementById("formResponse");
+        responseDiv.innerHTML = message;
+        responseDiv.classList.remove("text-green-600");
+        responseDiv.classList.add("text-red-600", "font-semibold", "mt-2");
+    }
+});
                             </script>
                             
                         
