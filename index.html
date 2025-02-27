@@ -25,17 +25,11 @@
     <!-- Main -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script>
-        function enableSubmitBtn() {
-            document.getElementById("submit_btn_id").disabled = false;
-        }
-    </script>
 </head>
 
 <body>
 
-    <!-- Blue bar -->
+    <!-- Blue bar start -->
     <div id="top-bar" class="topbar flex justify-between items-center mx-auto px-10 py-2 text-white text-sm">
         <div class="left-info flex items-center gap-6">
             <span><i class="fas fa-map-marker-alt"></i> Laredo TX, USA</span>
@@ -49,13 +43,12 @@
             <a href="https://wa.me/19565231987" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
+    <!-- Blue bar end -->
 
-    <!-- Navbar Start -->
     
+    <!-- Navbar Start -->
     <nav class="navbar fixed  start-0 end-0 z-999 transition-all duration-500 py-5 items-center shadow-md lg:shadow-none [&.is-sticky]:bg-white group [&.is-sticky]:shadow-md bg-white lg:bg-transparent" id="navbar">
         <div class="container">
-
-        
             <div class="flex lg:flex-nowrap flex-wrap items-center">
 
                 <a href="" class="flex items-center">
@@ -81,9 +74,6 @@
                         <li class="nav-item mx-1.5 transition-all text-dark lg:text-black group-[&.is-sticky]:text-dark duration-300 hover:text-primary [&.active]:!text-primary group-[&.is-sticky]:[&.active]:text-primary">
                             <a class="nav-link inline-flex items-center text-sm lg:text-base font-medium py-0.5 px-2 capitalize" href="#about">About us</a>
                         </li>
-
-
-                        
                     </ul>
                 </div>
 
@@ -95,6 +85,7 @@
             </div>
         </div>
     </nav>
+    <!-- Navbar end -->
     
 
     <!-- =========== Hero Section Start =========== -->
@@ -123,6 +114,8 @@
             </div>
         </div>
     </section>
+    <!-- =========== Hero Section End =========== -->
+
 
     <!-- Services Start -->
     <section id="services" class="py-20">
@@ -188,6 +181,7 @@
         </div>
     </section>
     <!-- Services End -->
+
 
     <!-- call to action start -->
     <section class="relative py-20 bg-cover bg-no-repeat bg-center" style="background-image: url('assets/images/quote.jpg');" data-jarallax data-speed="0.20">
@@ -323,7 +317,6 @@
         </div>
     </section>
     <!-- About End -->
-
 
 
 
@@ -466,6 +459,8 @@
     </section>
     <!-- Contact End -->
 
+
+
     <!-- Footer Start -->
     <footer class="bg-[#17243A] ">
         <div class="container">
@@ -580,19 +575,5 @@
     <!-- Main App Js -->
     <script src="assets/js/app.js" ></script>
        
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const topBar = document.getElementById('top-bar');
-            const topBarHeight = topBar.offsetHeight;
-
-            if (window.scrollY > topBarHeight) {
-                navbar.classList.add('is-sticky');
-            } else {
-                navbar.classList.remove('is-sticky');
-            }
-        });
-
-    </script>
     </body>
 </html>

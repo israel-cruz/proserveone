@@ -257,3 +257,21 @@ try {
 /*   Lucide Icons   */
 /*********************/
 lucide.createIcons();
+
+
+
+function enableSubmitBtn() {
+  document.getElementById("submit_btn_id").disabled = false;
+}
+
+window.addEventListener('scroll', function() {
+  const navbar = document.getElementById('navbar');
+  const topBar = document.getElementById('top-bar');
+  const topBarHeight = topBar.offsetHeight;
+
+  if (window.scrollY > topBarHeight) {
+      navbar.classList.add('is-sticky');
+  } else {
+      navbar.classList.remove('is-sticky');
+  }
+});
